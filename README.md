@@ -10,7 +10,7 @@ The project focuses on practical JavaScript concepts such as **CRUD operations, 
 
 ## 🔗 Live Demo
 
-👉 **[Open Subscription Tracker PRO]()**
+👉 **[Open Subscription Tracker PRO](https://johnyisbackk.github.io/js-subscription-tracker-pro-/)**
 
 ---
 

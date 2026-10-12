@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Subscription Tracker PRO - Track subscriptions, upcoming renewals and monthly spending."
+    />
+
+    <!-- ======================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ======================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+    <title>Subscription Tracker</title>
+  </head>
+  <body>
+    <!-- ======================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+      <div class="header-wrapper">
+        <a href="#" class="logo">
+          <i class="bi bi-lightning-charge-fill"></i>
+
+          <div>
+            <h1>Subscription Tracker <span>PRO</span></h1>
+            <p>Track Today. Save Tomorrow.</p>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <a href="#" class="nav-link active">
+            <i class="bi bi-house-fill"></i>
+            Dashboard
+          </a>
+
+          <a href="#" class="nav-link">
+            <i class="bi bi-database"></i>
+            Subscriptions
+          </a>
+
+          <a href="#" class="nav-link">
+            <i class="bi bi-bar-chart-fill"></i>
+            Analytics
+          </a>
+
+          <a href="#" class="nav-link">
+            <i class="bi bi-calendar3"></i>
+            Calendar
+          </a>
+
+          <a href="#" class="nav-link">
+            <i class="bi bi-gear"></i>
+            Settings
+          </a>
+        </nav>
+
+        <button class="toggle-button" type="button" aria-label="Theme toggle">
+          <i class="bi bi-sun-fill"></i>
+          <i class="bi bi-moon-fill"></i>
+        </button>
+
+        <div class="account-box">
+          <div class="account-box-image">
+            <img src="images/avatar-image.png" alt="User profile" />
+          </div>
+
+          <div class="account-box-content">
+            <span>JohnY Buttler</span>
+            <p>Free Plan</p>
+          </div>
+
+          <button
+            class="account-dropdown-button"
+            type="button"
+            aria-label="Open account menu"
+          >
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ======================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+      <!-- ======================================================
+           STATS SECTION
+      ====================================================== -->
+
+      <section class="stats-section">
+        <div class="stats-wrapper">
+          <div class="stats-boxes">
+            <div class="stat-box">
+              <div class="stat-icon">
+                <i class="bi bi-wallet2"></i>
+              </div>
+
+              <div class="stat-content">
+                <h3>Monthly Spend</h3>
+                <span id="monthlySpendValue">$84.99</span>
+              </div>
+
+              <div class="stat-meta">
+                <i class="bi bi-arrow-down"></i>
+                <p id="monthlySpendPercentageValue">12%</p>
+                <span>vs last month</span>
+              </div>
+
+              <div class="stat-wave"></div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-icon">
+                <i class="bi bi-bar-chart-fill"></i>
+              </div>
+
+              <div class="stat-content">
+                <h3>Yearly Spend</h3>
+                <span id="yearlySpendValue">$1,019.88</span>
+              </div>
+
+              <div class="stat-meta">
+                <i class="bi bi-arrow-up"></i>
+                <p id="yearlySpendPercentageValue">8%</p>
+                <span>vs last year</span>
+              </div>
+
+              <div class="stat-wave"></div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-icon">
+                <i class="bi bi-people-fill"></i>
+              </div>
+
+              <div class="stat-content">
+                <h3>Active Subscriptions</h3>
+                <span id="activeSubscriptionsValue">6</span>
+              </div>
+
+              <div class="stat-meta">
+                <i class="bi bi-plus"></i>
+                <p id="activeSubscriptionsPercentageValue">2</p>
+                <span>new this month</span>
+              </div>
+
+              <div class="stat-wave"></div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-icon">
+                <i class="bi bi-calendar-event-fill"></i>
+              </div>
+
+              <div class="stat-content">
+                <h3>Upcoming Payments</h3>
+                <span id="upcomingPaymentsValue">3</span>
+              </div>
+
+              <div class="stat-meta">
+                <span>in next 30 days</span>
+              </div>
+
+              <div class="stat-wave"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           DASHBOARD CONTENT
+      ====================================================== -->
+
+      <div class="dashboard-content">
+        <!-- ======================================================
+             LEFT COLUMN
+        ====================================================== -->
+
+        <div class="dashboard-left">
+          <!-- ======================================================
+               SUBSCRIPTIONS SECTION
+          ====================================================== -->
+
+          <section class="subscriptions-section">
+            <div class="subscriptions-header">
+              <div class="subscriptions-heading">
+                <div class="subscriptions-heading-icon">
+                  <i class="bi bi-layers-fill"></i>
+                </div>
+
+                <div>
+                  <h2>Your Subscriptions</h2>
+                  <p>Manage all your subscriptions in one place.</p>
+                </div>
+              </div>
+
+              <button
+                class="add-subscription-button"
+                id="addSubscriptionBtn"
+                type="button"
+              >
+                <i class="bi bi-plus-lg"></i>
+                Add Subscription
+              </button>
+            </div>
+
+            <div class="subscriptions-toolbar">
+              <div class="subscription-search">
+                <i class="bi bi-search"></i>
+
+                <input
+                  type="search"
+                  id="subscriptionSearchInput"
+                  placeholder="Search subscriptions..."
+                  autocomplete="off"
+                />
+              </div>
+
+              <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="productivity">Productivity</option>
+                <option value="health">Health</option>
+                <option value="technology">Technology</option>
+              </select>
+
+              <select id="billingCycleFilter">
+                <option value="all">All Billing Cycles</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+
+              <select id="subscriptionSort">
+                <option value="next-payment">Sort by: Next Payment</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Name: A-Z</option>
+              </select>
+            </div>
+
+            <div class="subscriptions-table-wrapper">
+              <table class="subscriptions-table">
+                <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th>Category</th>
+                    <th>Billing Cycle</th>
+                    <th>Price</th>
+                    <th>Next Billing Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="subscriptionsTableBody">
+                  <tr class="subscription-row">
+                    <td>
+                      <div class="subscription-service">
+                        <div class="subscription-service-icon entertainment">
+                          <i class="bi bi-play-fill"></i>
+                        </div>
+
+                        <div>
+                          <h3>StreamFlix</h3>
+                          <p>Movies & TV Shows</p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="subscription-category entertainment">
+                        Entertainment
+                      </span>
+                    </td>
+
+                    <td>Monthly</td>
+
+                    <td>
+                      <span class="subscription-price">$15.99</span>
+                    </td>
+
+                    <td>
+                      <div class="subscription-date">
+                        <span>Apr 12, 2025</span>
+                        <p class="payment-soon">in 5 days</p>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="subscription-actions">
+                        <button
+                          class="edit-subscription-button"
+                          type="button"
+                          aria-label="Edit subscription"
+                        >
+                          <i class="bi bi-pencil-fill"></i>
+                        </button>
+
+                        <button
+                          class="delete-subscription-button"
+                          type="button"
+                          aria-label="Delete subscription"
+                        >
+                          <i class="bi bi-trash3-fill"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="subscription-row">
+                    <td>
+                      <div class="subscription-service">
+                        <div class="subscription-service-icon entertainment">
+                          <i class="bi bi-music-note-beamed"></i>
+                        </div>
+
+                        <div>
+                          <h3>Music Plus</h3>
+                          <p>Music Streaming</p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="subscription-category entertainment">
+                        Entertainment
+                      </span>
+                    </td>
+
+                    <td>Monthly</td>
+
+                    <td>
+                      <span class="subscription-price">$9.99</span>
+                    </td>
+
+                    <td>
+                      <div class="subscription-date">
+                        <span>Apr 18, 2025</span>
+                        <p>in 11 days</p>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="subscription-actions">
+                        <button
+                          class="edit-subscription-button"
+                          type="button"
+                          aria-label="Edit subscription"
+                        >
+                          <i class="bi bi-pencil-fill"></i>
+                        </button>
+
+                        <button
+                          class="delete-subscription-button"
+                          type="button"
+                          aria-label="Delete subscription"
+                        >
+                          <i class="bi bi-trash3-fill"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="subscription-row">
+                    <td>
+                      <div class="subscription-service">
+                        <div class="subscription-service-icon productivity">
+                          <i class="bi bi-cloud-fill"></i>
+                        </div>
+
+                        <div>
+                          <h3>CloudBox</h3>
+                          <p>Cloud Storage</p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="subscription-category productivity">
+                        Productivity
+                      </span>
+                    </td>
+
+                    <td>Yearly</td>
+
+                    <td>
+                      <span class="subscription-price">$99.99</span>
+                    </td>
+
+                    <td>
+                      <div class="subscription-date">
+                        <span>May 4, 2025</span>
+                        <p>in 27 days</p>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="subscription-actions">
+                        <button
+                          class="edit-subscription-button"
+                          type="button"
+                          aria-label="Edit subscription"
+                        >
+                          <i class="bi bi-pencil-fill"></i>
+                        </button>
+
+                        <button
+                          class="delete-subscription-button"
+                          type="button"
+                          aria-label="Delete subscription"
+                        >
+                          <i class="bi bi-trash3-fill"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="subscription-row">
+                    <td>
+                      <div class="subscription-service">
+                        <div class="subscription-service-icon health">
+                          <i class="bi bi-heart-pulse-fill"></i>
+                        </div>
+
+                        <div>
+                          <h3>Gym Club</h3>
+                          <p>Fitness & Health</p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="subscription-category health"> Health </span>
+                    </td>
+
+                    <td>Monthly</td>
+
+                    <td>
+                      <span class="subscription-price">$24.99</span>
+                    </td>
+
+                    <td>
+                      <div class="subscription-date">
+                        <span>Apr 20, 2025</span>
+                        <p>in 13 days</p>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="subscription-actions">
+                        <button
+                          class="edit-subscription-button"
+                          type="button"
+                          aria-label="Edit subscription"
+                        >
+                          <i class="bi bi-pencil-fill"></i>
+                        </button>
+
+                        <button
+                          class="delete-subscription-button"
+                          type="button"
+                          aria-label="Delete subscription"
+                        >
+                          <i class="bi bi-trash3-fill"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="subscription-row">
+                    <td>
+                      <div class="subscription-service">
+                        <div class="subscription-service-icon productivity">
+                          <i class="bi bi-palette-fill"></i>
+                        </div>
+
+                        <div>
+                          <h3>Design Suite</h3>
+                          <p>Creative Tools</p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="subscription-category productivity">
+                        Productivity
+                      </span>
+                    </td>
+
+                    <td>Monthly</td>
+
+                    <td>
+                      <span class="subscription-price">$29.99</span>
+                    </td>
+
+                    <td>
+                      <div class="subscription-date">
+                        <span>May 1, 2025</span>
+                        <p>in 24 days</p>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="subscription-actions">
+                        <button
+                          class="edit-subscription-button"
+                          type="button"
+                          aria-label="Edit subscription"
+                        >
+                          <i class="bi bi-pencil-fill"></i>
+                        </button>
+
+                        <button
+                          class="delete-subscription-button"
+                          type="button"
+                          aria-label="Delete subscription"
+                        >
+                          <i class="bi bi-trash3-fill"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="subscription-row">
+                    <td>
+                      <div class="subscription-service">
+                        <div class="subscription-service-icon technology">
+                          <i class="bi bi-stars"></i>
+                        </div>
+
+                        <div>
+                          <h3>AI Tools</h3>
+                          <p>AI & Technology</p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="subscription-category technology">
+                        Technology
+                      </span>
+                    </td>
+
+                    <td>Monthly</td>
+
+                    <td>
+                      <span class="subscription-price">$19.99</span>
+                    </td>
+
+                    <td>
+                      <div class="subscription-date">
+                        <span>Apr 25, 2025</span>
+                        <p>in 18 days</p>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="subscription-actions">
+                        <button
+                          class="edit-subscription-button"
+                          type="button"
+                          aria-label="Edit subscription"
+                        >
+                          <i class="bi bi-pencil-fill"></i>
+                        </button>
+
+                        <button
+                          class="delete-subscription-button"
+                          type="button"
+                          aria-label="Delete subscription"
+                        >
+                          <i class="bi bi-trash3-fill"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ======================================================
+               RECENT ACTIVITY SECTION
+          ====================================================== -->
+
+          <section class="recent-activity-section">
+            <div class="recent-activity-header">
+              <div class="recent-activity-heading">
+                <div class="recent-activity-heading-icon">
+                  <i class="bi bi-clock-history"></i>
+                </div>
+
+                <div>
+                  <h2>Recent Activity</h2>
+                  <p>Your latest subscription activity.</p>
+                </div>
+              </div>
+
+              <button class="view-all-button" type="button">View all</button>
+            </div>
+
+            <div class="recent-activity-list">
+              <div class="activity-item">
+                <div class="activity-icon payment">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+
+                <div class="activity-content">
+                  <h3>Payment successful</h3>
+                  <p>
+                    AI Tools
+                    <span>•</span>
+                    $19.99
+                  </p>
+                </div>
+
+                <div class="activity-meta">
+                  <span>Mar 25, 2025</span>
+                  <p>2 days ago</p>
+                </div>
+
+                <div class="activity-status success">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon added">
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+
+                <div class="activity-content">
+                  <h3>Subscription added</h3>
+                  <p>
+                    Design Suite
+                    <span>•</span>
+                    $29.99 / month
+                  </p>
+                </div>
+
+                <div class="activity-meta">
+                  <span>Mar 23, 2025</span>
+                  <p>4 days ago</p>
+                </div>
+
+                <div class="activity-status info">
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon updated">
+                  <i class="bi bi-pencil-fill"></i>
+                </div>
+
+                <div class="activity-content">
+                  <h3>Subscription updated</h3>
+                  <p>
+                    Gym Club
+                    <span>•</span>
+                    Billing date changed
+                  </p>
+                </div>
+
+                <div class="activity-meta">
+                  <span>Mar 20, 2025</span>
+                  <p>7 days ago</p>
+                </div>
+
+                <div class="activity-status warning">
+                  <i class="bi bi-pencil-fill"></i>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon removed">
+                  <i class="bi bi-trash3-fill"></i>
+                </div>
+
+                <div class="activity-content">
+                  <h3>Subscription removed</h3>
+                  <p>
+                    Video Premium
+                    <span>•</span>
+                    $11.99 / month
+                  </p>
+                </div>
+
+                <div class="activity-meta">
+                  <span>Mar 18, 2025</span>
+                  <p>9 days ago</p>
+                </div>
+
+                <div class="activity-status danger">
+                  <i class="bi bi-x-lg"></i>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ======================================================
+             RIGHT COLUMN
+        ====================================================== -->
+
+        <div class="dashboard-right">
+          <!-- ======================================================
+               UPCOMING RENEWALS SECTION
+          ====================================================== -->
+
+          <section class="upcoming-renewals-section">
+            <div class="upcoming-renewals-header">
+              <div class="upcoming-renewals-heading">
+                <div class="upcoming-renewals-heading-icon">
+                  <i class="bi bi-calendar-event-fill"></i>
+                </div>
+
+                <h2>Upcoming Renewals</h2>
+              </div>
+
+              <button class="view-all-button" type="button">View all</button>
+            </div>
+
+            <div class="upcoming-renewals-list">
+              <div class="renewal-item">
+                <div class="renewal-service">
+                  <div class="renewal-service-icon entertainment">
+                    <i class="bi bi-play-fill"></i>
+                  </div>
+
+                  <div>
+                    <h3>StreamFlix</h3>
+                  </div>
+                </div>
+
+                <span class="renewal-price">$15.99</span>
+
+                <span class="renewal-date">Apr 12, 2025</span>
+
+                <span class="renewal-days danger">5 days</span>
+              </div>
+
+              <div class="renewal-item">
+                <div class="renewal-service">
+                  <div class="renewal-service-icon entertainment">
+                    <i class="bi bi-music-note-beamed"></i>
+                  </div>
+
+                  <div>
+                    <h3>Music Plus</h3>
+                  </div>
+                </div>
+
+                <span class="renewal-price">$9.99</span>
+
+                <span class="renewal-date">Apr 18, 2025</span>
+
+                <span class="renewal-days">11 days</span>
+              </div>
+
+              <div class="renewal-item">
+                <div class="renewal-service">
+                  <div class="renewal-service-icon health">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                  </div>
+
+                  <div>
+                    <h3>Gym Club</h3>
+                  </div>
+                </div>
+
+                <span class="renewal-price">$24.99</span>
+
+                <span class="renewal-date">Apr 20, 2025</span>
+
+                <span class="renewal-days">13 days</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================
+               CATEGORY BREAKDOWN SECTION
+          ====================================================== -->
+
+          <section class="category-breakdown-section">
+            <div class="category-breakdown-header">
+              <div class="category-breakdown-heading">
+                <div class="category-breakdown-heading-icon">
+                  <i class="bi bi-pie-chart-fill"></i>
+                </div>
+
+                <h2>Category Breakdown</h2>
+              </div>
+
+              <select id="categoryBreakdownPeriod">
+                <option value="month">This Month</option>
+                <option value="year">This Year</option>
+              </select>
+            </div>
+
+            <div class="category-breakdown-content">
+              <div class="category-chart-wrapper">
+                <canvas id="categoryBreakdownChart"></canvas>
+
+                <div class="category-chart-center">
+                  <span id="categoryBreakdownTotal">$84.99</span>
+                  <p>per month</p>
+                </div>
+              </div>
+
+              <div class="category-breakdown-list">
+                <div class="category-breakdown-item">
+                  <div class="category-breakdown-info">
+                    <span class="category-color entertainment"></span>
+                    <p>Entertainment</p>
+                  </div>
+
+                  <div class="category-breakdown-values">
+                    <span>31%</span>
+                    <strong>$25.98</strong>
+                  </div>
+                </div>
+
+                <div class="category-breakdown-item">
+                  <div class="category-breakdown-info">
+                    <span class="category-color productivity"></span>
+                    <p>Productivity</p>
+                  </div>
+
+                  <div class="category-breakdown-values">
+                    <span>35%</span>
+                    <strong>$29.99</strong>
+                  </div>
+                </div>
+
+                <div class="category-breakdown-item">
+                  <div class="category-breakdown-info">
+                    <span class="category-color health"></span>
+                    <p>Health</p>
+                  </div>
+
+                  <div class="category-breakdown-values">
+                    <span>29%</span>
+                    <strong>$24.99</strong>
+                  </div>
+                </div>
+
+                <div class="category-breakdown-item">
+                  <div class="category-breakdown-info">
+                    <span class="category-color technology"></span>
+                    <p>Technology</p>
+                  </div>
+
+                  <div class="category-breakdown-values">
+                    <span>24%</span>
+                    <strong>$19.99</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================
+               MONTHLY SPENDING TREND SECTION
+          ====================================================== -->
+
+          <section class="monthly-spending-section">
+            <div class="monthly-spending-header">
+              <div class="monthly-spending-heading">
+                <div class="monthly-spending-heading-icon">
+                  <i class="bi bi-bar-chart-line-fill"></i>
+                </div>
+
+                <h2>Monthly Spending Trend</h2>
+              </div>
+
+              <select id="monthlySpendingPeriod">
+                <option value="6">Last 6 Months</option>
+                <option value="12">Last 12 Months</option>
+              </select>
+            </div>
+
+            <div class="monthly-spending-chart-wrapper">
+              <canvas id="monthlySpendingChart"></canvas>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- ======================================================
+     ADD SUBSCRIPTION MODAL
+====================================================== -->
+
+    <div class="subscription-modal-overlay" id="subscriptionModal">
+      <div class="subscription-modal">
+        <div class="subscription-modal-header">
+          <div class="subscription-modal-heading">
+            <div class="subscription-modal-icon">
+              <i class="bi bi-plus-lg"></i>
+            </div>
+
+            <div>
+              <h2 id="subscriptionModalTitle">Add Subscription</h2>
+              <p id="subscriptionModalDescription">
+                Add a new service to your subscription tracker.
+              </p>
+            </div>
+          </div>
+
+          <button
+            class="close-modal-button"
+            id="closeSubscriptionModalBtn"
+            type="button"
+            aria-label="Close modal"
+          >
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <form class="subscription-form" id="subscriptionForm">
+          <div class="form-group full-width">
+            <label for="subscriptionName">Service Name</label>
+
+            <div class="form-input">
+              <i class="bi bi-grid-fill"></i>
+
+              <input
+                type="text"
+                id="subscriptionName"
+                placeholder="e.g. Netflix"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="subscriptionDescription">Description</label>
+
+            <div class="form-input">
+              <i class="bi bi-card-text"></i>
+
+              <input
+                type="text"
+                id="subscriptionDescription"
+                placeholder="e.g. Movies & TV Shows"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subscriptionCategory">Category</label>
+
+            <select id="subscriptionCategory" required>
+              <option value="" disabled selected>Select category</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="productivity">Productivity</option>
+              <option value="health">Health</option>
+              <option value="technology">Technology</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="subscriptionBillingCycle">Billing Cycle</label>
+
+            <select id="subscriptionBillingCycle" required>
+              <option value="" disabled selected>Select billing cycle</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="subscriptionPrice">Price</label>
+
+            <div class="form-input">
+              <i class="bi bi-currency-dollar"></i>
+
+              <input
+                type="number"
+                id="subscriptionPrice"
+                placeholder="0.00"
+                min="0"
+                step="0.01"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subscriptionNextBillingDate">Next Billing Date</label>
+
+            <div class="form-input">
+              <i class="bi bi-calendar3"></i>
+
+              <input type="date" id="subscriptionNextBillingDate" required />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="subscriptionIcon">Service Icon</label>
+
+            <select id="subscriptionIcon" required>
+              <option value="bi-play-fill">Play</option>
+              <option value="bi-music-note-beamed">Music</option>
+              <option value="bi-cloud-fill">Cloud</option>
+              <option value="bi-heart-pulse-fill">Health</option>
+              <option value="bi-palette-fill">Design</option>
+              <option value="bi-stars">AI / Technology</option>
+              <option value="bi-controller">Gaming</option>
+              <option value="bi-book-fill">Education</option>
+            </select>
+          </div>
+
+          <div class="subscription-form-actions">
+            <button
+              class="cancel-subscription-button"
+              id="cancelSubscriptionBtn"
+              type="button"
+            >
+              Cancel
+            </button>
+
+            <button
+              class="save-subscription-button"
+              id="saveSubscriptionButton"
+              type="submit"
+            >
+              <i class="bi bi-plus-lg"></i>
+              Add Subscription
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
